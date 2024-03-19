@@ -1,0 +1,1101 @@
+{
+	"info": {
+		"_postman_id": "50e5411b-6756-458d-8c3e-27cfc286955b",
+		"name": "Collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33652409"
+	},
+	"item": [
+		{
+			"name": "Incidents",
+			"item": [
+				{
+					"name": "Get All Change Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/change_request?sysparm_limit=5&short_description=Created by Abi",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							],
+							"query": [
+								{
+									"key": "sysparm_limit",
+									"value": "5"
+								},
+								{
+									"key": "short_description",
+									"value": "Created by Abi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Incident",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/incident?sys_id=d65e9864970d02103f0332b6f053af0c",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sys_id",
+									"value": "d65e9864970d02103f0332b6f053af0c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New CR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//{\r\n //   \"short_description\":\"Created using RestAPI\"\r\n//}\r\n{\"short_description\":\"Created by Abi\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/change_request",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Incident",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"short_description\":\"Incident Created by Abi\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/incident",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Incident",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"category\" : \"hardware\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/incident/d65e9864970d02103f0332b6f053af0c",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident",
+								"d65e9864970d02103f0332b6f053af0c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update CR",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"short_description\" : \"description changed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/change_request/87b2d82897c902103f0332b6f053af81",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request",
+								"87b2d82897c902103f0332b6f053af81"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Incident",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/incident/d65e9864970d02103f0332b6f053af0c",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident",
+								"d65e9864970d02103f0332b6f053af0c"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "aC@Mf=w4cQ7V",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Change Request",
+			"item": [
+				{
+					"name": "Get All Change Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/change_request?sysparm_limit=5&short_description=Created by Abi",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							],
+							"query": [
+								{
+									"key": "sysparm_limit",
+									"value": "5"
+								},
+								{
+									"key": "short_description",
+									"value": "Created by Abi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New CR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//{\r\n //   \"short_description\":\"Created using RestAPI\"\r\n//}\r\n{\"short_description\":\"Created by Abi\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/change_request",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update CR",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"short_description\" : \"description changed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/change_request/87b2d82897c902103f0332b6f053af81",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request",
+								"87b2d82897c902103f0332b6f053af81"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete CR",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Delete Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/change_request/e0639ca897c902103f0332b6f053af90",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request",
+								"e0639ca897c902103f0332b6f053af90"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "aC@Mf=w4cQ7V",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Learn Assertions",
+			"item": [
+				{
+					"name": "Get All Change Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/change_request?sysparm_limit=5&short_description=Created by Abi",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							],
+							"query": [
+								{
+									"key": "sysparm_limit",
+									"value": "5"
+								},
+								{
+									"key": "short_description",
+									"value": "Created by Abi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Incident",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/incident?sys_id=d65e9864970d02103f0332b6f053af0c",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sys_id",
+									"value": "d65e9864970d02103f0332b6f053af0c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New CR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//{\r\n //   \"short_description\":\"Created using RestAPI\"\r\n//}\r\n{\"short_description\":\"Created by Abi\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/change_request",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Incident",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Incident Created by Abi\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"short_description\":\"Incident Created by Abi\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/incident",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Incident",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"category\" : \"hardware\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/incident/d65e9864970d02103f0332b6f053af0c",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident",
+								"d65e9864970d02103f0332b6f053af0c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update CR",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"short_description\" : \"description changed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/change_request/87b2d82897c902103f0332b6f053af81",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request",
+								"87b2d82897c902103f0332b6f053af81"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Incident",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://dev94535.service-now.com/api/now/table/incident/d65e9864970d02103f0332b6f053af0c",
+							"protocol": "https",
+							"host": [
+								"dev94535",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident",
+								"d65e9864970d02103f0332b6f053af0c"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "aC@Mf=w4cQ7V",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Learn variable",
+			"item": [
+				{
+					"name": "Get All Change Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/now/table/change_request?sysparm_limit=5&short_description=Created by Abi",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							],
+							"query": [
+								{
+									"key": "sysparm_limit",
+									"value": "5"
+								},
+								{
+									"key": "short_description",
+									"value": "Created by Abi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Incident",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/now/table/incident?sys_id=d65e9864970d02103f0332b6f053af0c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sys_id",
+									"value": "d65e9864970d02103f0332b6f053af0c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New CR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//{\r\n //   \"short_description\":\"Created using RestAPI\"\r\n//}\r\n{\"short_description\":\"Created by Abi\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/now/table/change_request",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Incident",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Incident Created by Abi\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"short_description\":\"Incident Created by Abi\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/now/table/incident",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Incident",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"category\" : \"hardware\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/now/table/incident/d65e9864970d02103f0332b6f053af0c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident",
+								"d65e9864970d02103f0332b6f053af0c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update CR",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"short_description\" : \"description changed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/now/table/change_request/87b2d82897c902103f0332b6f053af81",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"change_request",
+								"87b2d82897c902103f0332b6f053af81"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Incident",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/now/table/incident/d65e9864970d02103f0332b6f053af0c{",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident",
+								"d65e9864970d02103f0332b6f053af0c{"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "{{password}}",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "{{username}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
