@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "3a932754-0c1b-44d1-824d-f0ff4ad54681",
+		"name": "JIRA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33652409"
+	},
+	"item": [
+		{
+			"name": "CreateIssue",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"project\": {\r\n            \"key\": \"TES\"\r\n        },\r\n        \"summary\": \"create issue in RA project\",\r\n        \"description\": \"Creating of an issue using project keys and issue type names using the REST API\",\r\n        \"issuetype\": {\r\n            \"name\": \"Bug\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testjirafeb2023.atlassian.net/rest/api/2/issue/",
+					"protocol": "https",
+					"host": [
+						"testjirafeb2023",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "ATATT3xFfGF07l3P383cEkq9UxdU7W6WPYnDbilxk0f-c8JT1LB9ubgHUyJz3qa2NtLfldtwYIPCJhXlgAsYSMIaScp5YfEELQyTa0EJ8PoA8I8h8pVBZqCM7v1zTgxQ87vIT6RyqL4v5y1KChu-kuE1hDOdKIeuWi1nyqG4OVf--_ph9sA7b58=0DFB5058",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "Feb2023restAPI@gmail.com",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
